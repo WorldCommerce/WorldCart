@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WorldCart.Data.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_WorldCart_OrderAttribute_WorldCart_Order' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_WorldCart_OrderAttribute_WorldCart_Order" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_WorldCart_OrderItem_WorldCart_Order' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_WorldCart_OrderItem_WorldCart_Order" />-->
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK_WorldCart_Payment_WorldCart_Order' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK_WorldCart_Payment_WorldCart_Order" />-->
+        <Function Name="WorldCart_AddOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Total" Type="money" Mode="In" />
+          <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+          <Parameter Name="OrderNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="CustomerID" Type="bigint" Mode="In" />
+          <Parameter Name="AddressID" Type="bigint" Mode="In" />
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+          <Parameter Name="Title" Type="nvarchar" Mode="In" />
+          <Parameter Name="Summary" Type="nvarchar" Mode="In" />
+          <Parameter Name="NetworkAddress" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedDate" Type="datetime" Mode="In" />
+          <Parameter Name="CreatedByUser" Type="nvarchar" Mode="In" />
+          <Parameter Name="PortalID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WorldCart_GetOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="OrderNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="PortalID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WorldCart_ListOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MaximumRows" Type="int" Mode="In" />
+          <Parameter Name="StartRowIndex" Type="bigint" Mode="In" />
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+          <Parameter Name="SortExpression" Type="nvarchar" Mode="In" />
+          <Parameter Name="PortalID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="WorldCart_UpdateOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="bigint" Mode="In" />
+          <Parameter Name="Total" Type="money" Mode="In" />
+          <Parameter Name="Subtotal" Type="money" Mode="In" />
+          <Parameter Name="TaxTotal" Type="money" Mode="In" />
+          <Parameter Name="FeeTotal" Type="money" Mode="In" />
+          <Parameter Name="ShippingTotal" Type="money" Mode="In" />
+          <Parameter Name="DiscountTotal" Type="money" Mode="In" />
+          <Parameter Name="Status" Type="smallint" Mode="In" />
+          <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+          <Parameter Name="ModifiedByUser" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="WorldCartDataStoreContainer">
+          </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WorldCart.Data" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CheckoutEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="AddOrder" ReturnType="Collection(Int64)">
+            <Parameter Name="Total" Mode="In" Type="Decimal" />
+            <Parameter Name="OrderDate" Mode="In" Type="DateTime" />
+            <Parameter Name="OrderNumber" Mode="In" Type="String" />
+            <Parameter Name="CustomerID" Mode="In" Type="Int64" />
+            <Parameter Name="AddressID" Mode="In" Type="Int64" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="Title" Mode="In" Type="String" />
+            <Parameter Name="Summary" Mode="In" Type="String" />
+            <Parameter Name="NetworkAddress" Mode="In" Type="String" />
+            <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedByUser" Mode="In" Type="String" />
+            <Parameter Name="PortalID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetOrder">
+            <Parameter Name="OrderNumber" Mode="In" Type="String" />
+            <Parameter Name="PortalID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ListOrders">
+            <Parameter Name="MaximumRows" Mode="In" Type="Int32" />
+            <Parameter Name="StartRowIndex" Mode="In" Type="Int64" />
+            <Parameter Name="Username" Mode="In" Type="String" />
+            <Parameter Name="SortExpression" Mode="In" Type="String" />
+            <Parameter Name="PortalID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateOrder">
+            <Parameter Name="ID" Mode="In" Type="Int64" />
+            <Parameter Name="Total" Mode="In" Type="Decimal" />
+            <Parameter Name="Subtotal" Mode="In" Type="Decimal" />
+            <Parameter Name="TaxTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="FeeTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="ShippingTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="DiscountTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="Status" Mode="In" Type="Int16" />
+            <Parameter Name="ModifiedDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ModifiedByUser" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WorldCartDataStoreContainer" CdmEntityContainer="CheckoutEntities">
+          <FunctionImportMapping FunctionImportName="AddOrder" FunctionName="WorldCart.Data.Store.WorldCart_AddOrder" />
+          <FunctionImportMapping FunctionImportName="GetOrder" FunctionName="WorldCart.Data.Store.WorldCart_GetOrder">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ListOrders" FunctionName="WorldCart.Data.Store.WorldCart_ListOrders">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UpdateOrder" FunctionName="WorldCart.Data.Store.WorldCart_UpdateOrder" />
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
