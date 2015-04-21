@@ -70,6 +70,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CheckoutContext.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs">
+      <DependentUpon>CheckoutContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <DependentUpon>CheckoutContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="6b471e4d13ab45cb89160720e96dbe25" Name="Diagram1">
-        </Diagram>
+        <EntityTypeShape EntityType="WorldCart.Data.Order" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="WorldCart.Data.Payment" Width="1.5" PointX="2.75" PointY="0.75" />
+        <AssociationConnector Association="WorldCart.Data.FK_WorldCart_Payment_WorldCart_Order" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -27,6 +27,8 @@ namespace WorldCart.Data
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
     
         public virtual ObjectResult<Nullable<long>> AddOrder(Nullable<decimal> total, Nullable<System.DateTime> orderDate, string orderNumber, Nullable<long> customerID, Nullable<long> addressID, string username, string title, string summary, string networkAddress, Nullable<System.DateTime> createdDate, string createdByUser, Nullable<int> portalID)
         {
