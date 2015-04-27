@@ -38,6 +38,6 @@ namespace WorldCart.Data
         public string ModifiedByUser { get; set; }
         public Nullable<int> PortalID { get; set; }
     
-        public virtual Order Order { get; set; }
+        private Order Order { get; set; }
     }
 }

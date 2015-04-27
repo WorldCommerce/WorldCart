@@ -44,6 +44,6 @@ namespace WorldCart.Data
         public Nullable<int> PortalID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payment> Payments { get; set; }
+        private ICollection<Payment> Payments { get; set; }
     }
 }

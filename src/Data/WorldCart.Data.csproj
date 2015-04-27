@@ -55,49 +55,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CheckoutContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CheckoutContext.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CheckoutContext.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CheckoutContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CheckoutContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CheckoutContext.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Order.cs">
-      <DependentUpon>CheckoutContext.tt</DependentUpon>
+      <DependentUpon>WorldCart.tt</DependentUpon>
     </Compile>
     <Compile Include="Payment.cs">
-      <DependentUpon>CheckoutContext.tt</DependentUpon>
+      <DependentUpon>WorldCart.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorldCart.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorldCart.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorldCart.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorldCart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorldCart.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WorldCart.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="CheckoutContext.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CheckoutContext.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="CheckoutContext.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CheckoutContext.edmx</DependentUpon>
-      <LastGenOutput>CheckoutContext.Context.cs</LastGenOutput>
-    </None>
-    <None Include="CheckoutContext.edmx.diagram">
-      <DependentUpon>CheckoutContext.edmx</DependentUpon>
-    </None>
-    <None Include="CheckoutContext.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CheckoutContext.edmx</DependentUpon>
-      <LastGenOutput>CheckoutContext.cs</LastGenOutput>
-    </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="WorldCart.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>WorldCart.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="WorldCart.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WorldCart.edmx</DependentUpon>
+      <LastGenOutput>WorldCart.Context.cs</LastGenOutput>
+    </None>
+    <None Include="WorldCart.edmx.diagram">
+      <DependentUpon>WorldCart.edmx</DependentUpon>
+    </None>
+    <None Include="WorldCart.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>WorldCart.edmx</DependentUpon>
+      <LastGenOutput>WorldCart.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

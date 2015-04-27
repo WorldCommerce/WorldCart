@@ -14,7 +14,7 @@ namespace WorldCart.Services
   {
     public Order GetData(int value)
     {
-      using (var db = new CheckoutEntities())
+      using (var db = new WorldCartEntities())
       {
         return new Order { ID = value };
         //return db.WorldCart_Orders.SingleOrDefault(o => o.ID == value);
