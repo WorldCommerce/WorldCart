@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCart", "src\WorldCart\WorldCart.csproj", "{0BA506BA-E31D-425B-9A65-45CDC953DA3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCart.Data", "src\Data\WorldCart.Data.csproj", "{63BBEC0F-0725-4C3F-92F8-891D059F9EB5}"
