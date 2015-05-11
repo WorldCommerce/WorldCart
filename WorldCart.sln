@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCart", "src\WorldCart\WorldCart.csproj", "{0BA506BA-E31D-425B-9A65-45CDC953DA3F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{63BBEC0F-0725-4C3F-92F8-891D059F9EB5} = {63BBEC0F-0725-4C3F-92F8-891D059F9EB5}
+		{15B3E0D2-6217-493A-A690-158C497F5318} = {15B3E0D2-6217-493A-A690-158C497F5318}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCart.Data", "src\Data\WorldCart.Data.csproj", "{63BBEC0F-0725-4C3F-92F8-891D059F9EB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCart.Services", "src\Services\WorldCart.Services.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCart.Tests", "tests\WorldCart\WorldCart.Tests.csproj", "{78114220-9F53-4E23-BA64-5A816852756B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldCart.Tests", "test\WorldCart\WorldCart.Tests.csproj", "{78114220-9F53-4E23-BA64-5A816852756B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

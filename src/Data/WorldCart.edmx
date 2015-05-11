@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WorldCartModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WorldCartModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="WorldCart_Order">
           <Key>
             <PropertyRef Name="ID" />
@@ -17,12 +17,12 @@
           <Property Name="Summary" Type="nvarchar" MaxLength="1024" />
           <Property Name="OrderDate" Type="datetime" Nullable="false" />
           <Property Name="OrderNumber" Type="nvarchar" MaxLength="64" Nullable="false" />
-          <Property Name="Total" Type="money" Nullable="false" />
-          <Property Name="Subtotal" Type="money" />
-          <Property Name="TaxTotal" Type="money" />
-          <Property Name="FeeTotal" Type="money" />
-          <Property Name="ShippingTotal" Type="money" />
-          <Property Name="DiscountTotal" Type="money" />
+          <Property Name="Total" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Subtotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="TaxTotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="FeeTotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="ShippingTotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="DiscountTotal" Type="decimal" Precision="19" Scale="4" />
           <Property Name="IPAddress" Type="nvarchar" MaxLength="64" />
           <Property Name="Status" Type="smallint" />
           <Property Name="SortOrder" Type="float" />
@@ -46,7 +46,7 @@
           <Property Name="PaymentDate" Type="datetime" Nullable="false" />
           <Property Name="PaymentNumber" Type="nvarchar" MaxLength="64" Nullable="false" />
           <Property Name="PaymentMethod" Type="nvarchar" MaxLength="64" />
-          <Property Name="Total" Type="money" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Success" Type="bit" Nullable="false" />
           <Property Name="Message" Type="nvarchar" MaxLength="1024" />
           <Property Name="TransactionNumber" Type="nvarchar" MaxLength="256" />
