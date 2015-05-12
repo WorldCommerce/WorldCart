@@ -1,4 +1,6 @@
-﻿<header>
+﻿@model WorldCart.Models.Model1
+
+<header>
     <div class="content-wrapper">
         <div class="pull-left">
             <p class="site-title">
@@ -10,8 +12,8 @@
     <section class="featured">
         <div class="content-wrapper">
             <hgroup class="title">
-                <h1>Welcome to ASP.NET Web API!</h1>
-                <h2>Modify the code in this template to jump-start your ASP.NET Web API development.</h2>
+                <h1>@Model.Title</h1>
+                <h2>@Model.Summary</h2>
             </hgroup>
             <p>
                 ASP.NET Web API allows you to expose your applications, data and services to the
