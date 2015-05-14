@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorldCart.OrderService {
+namespace WorldCart.Services.Clients {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OrderService.IOrderService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Services.Clients.IOrderService")]
     public interface IOrderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrder", ReplyAction="http://tempuri.org/IOrderService/GetOrderResponse")]
@@ -23,12 +23,12 @@ namespace WorldCart.OrderService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IOrderServiceChannel : WorldCart.OrderService.IOrderService, System.ServiceModel.IClientChannel {
+    public interface IOrderServiceChannel : WorldCart.Services.Clients.IOrderService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class OrderServiceClient : System.ServiceModel.ClientBase<WorldCart.OrderService.IOrderService>, WorldCart.OrderService.IOrderService {
+    public partial class OrderServiceClient : System.ServiceModel.ClientBase<WorldCart.Services.Clients.IOrderService>, WorldCart.Services.Clients.IOrderService {
         
         public OrderServiceClient() {
         }

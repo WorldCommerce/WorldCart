@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IOrderService" contract="OrderService.IOrderService" bindingType="basicHttpBinding" address="http://localhost:8733/Design_Time_Addresses/Services/OrderService/" bindingConfiguration="BasicHttpBinding_IOrderService">
+    <endpoint name="BasicHttpBinding_IOrderService" contract="Services.Clients.IOrderService" bindingType="basicHttpBinding" address="http://localhost:8733/Design_Time_Addresses/Services/OrderService/" bindingConfiguration="BasicHttpBinding_IOrderService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8733/Design_Time_Addresses/Services/OrderService/</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>BasicHttpBinding_IOrderService</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>OrderService.IOrderService</serializedValue>
+          <serializedValue>Services.Clients.IOrderService</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

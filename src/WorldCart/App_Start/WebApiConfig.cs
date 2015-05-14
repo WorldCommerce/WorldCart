@@ -10,9 +10,9 @@ namespace WorldCart
     public static void Register(HttpConfiguration config)
     {
       config.Routes.MapHttpRoute(
-          name: "DefaultApi",
-          routeTemplate: "api/{controller}/{id}",
-          defaults: new { id = RouteParameter.Optional }
+          name: "OrdersApi",
+          routeTemplate: "api/orders/{orderNumber}.json",
+          defaults: new { controller = "orders", orderNumber = RouteParameter.Optional }
       );
     }
   }
