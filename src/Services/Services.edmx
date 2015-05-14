@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ServiceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="WorldCart_Order">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerID" Type="bigint" />
+          <Property Name="AddressID" Type="bigint" />
+          <Property Name="Username" Type="nvarchar" MaxLength="64" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="1024" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="OrderNumber" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Subtotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="TaxTotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="FeeTotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="ShippingTotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="DiscountTotal" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="64" />
+          <Property Name="Status" Type="smallint" />
+          <Property Name="SortOrder" Type="float" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedByUser" Type="nvarchar" MaxLength="64" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedByUser" Type="nvarchar" MaxLength="64" />
+          <Property Name="PortalID" Type="int" />
+        </EntityType>
+        <EntityType Name="WorldCart_Payment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OrderID" Type="bigint" />
+          <Property Name="CustomerID" Type="bigint" />
+          <Property Name="AccountID" Type="bigint" />
+          <Property Name="Username" Type="nvarchar" MaxLength="64" />
+          <Property Name="Title" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Summary" Type="nvarchar" MaxLength="1024" />
+          <Property Name="PaymentDate" Type="datetime" Nullable="false" />
+          <Property Name="PaymentNumber" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="PaymentMethod" Type="nvarchar" MaxLength="64" />
+          <Property Name="Total" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Success" Type="bit" Nullable="false" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
+          <Property Name="TransactionNumber" Type="nvarchar" MaxLength="256" />
+          <Property Name="AuthorizationCode" Type="nvarchar" MaxLength="256" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="64" />
+          <Property Name="Status" Type="smallint" />
+          <Property Name="SortOrder" Type="float" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedByUser" Type="nvarchar" MaxLength="64" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="ModifiedByUser" Type="nvarchar" MaxLength="64" />
+          <Property Name="PortalID" Type="int" />
+        </EntityType>
+        <Association Name="FK_WorldCart_Payment_WorldCart_Order">
+          <End Role="WorldCart_Order" Type="Self.WorldCart_Order" Multiplicity="0..1" />
+          <End Role="WorldCart_Payment" Type="Self.WorldCart_Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorldCart_Order">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WorldCart_Payment">
+              <PropertyRef Name="OrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServiceModelStoreContainer">
+          <EntitySet Name="WorldCart_Order" EntityType="Self.WorldCart_Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WorldCart_Payment" EntityType="Self.WorldCart_Payment" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_WorldCart_Payment_WorldCart_Order" Association="Self.FK_WorldCart_Payment_WorldCart_Order">
+            <End Role="WorldCart_Order" EntitySet="WorldCart_Order" />
+            <End Role="WorldCart_Payment" EntitySet="WorldCart_Payment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ServiceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_id" Type="Int64" />
+          <Property Name="address_id" Type="Int64" />
+          <Property Name="username" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="summary" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="order_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="order_number" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="subtotal" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="tax_total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fee_total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="shipping_total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="discount_total" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ip_address" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int16" />
+          <Property Name="sort_order" Type="Double" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="portal_id" Type="Int32" />
+          <NavigationProperty Name="payments" Relationship="Self.FK_WorldCart_Payment_WorldCart_Order" FromRole="WorldCart_Order" ToRole="WorldCart_Payment" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" a:GetterAccess="Public" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Public" />
+          <Property Name="order_id" Type="Int64" />
+          <Property Name="customer_id" Type="Int64" />
+          <Property Name="account_id" Type="Int64" />
+          <Property Name="username" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="title" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="summary" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="payment_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="payment_number" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="payment_method" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="success" Type="Boolean" Nullable="false" />
+          <Property Name="message" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Name="transaction_number" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="authorization_code" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ip_address" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Int16" />
+          <Property Name="sort_order" Type="Double" />
+          <Property Name="created_date" Type="DateTime" Precision="3" />
+          <Property Name="created_by" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="modified_date" Type="DateTime" Precision="3" />
+          <Property Name="modified_by" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="portal_id" Type="Int32" />
+          <NavigationProperty Name="order" Relationship="Self.FK_WorldCart_Payment_WorldCart_Order" FromRole="WorldCart_Payment" ToRole="WorldCart_Order" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
+        </EntityType>
+        <Association Name="FK_WorldCart_Payment_WorldCart_Order">
+          <End Role="WorldCart_Order" Type="ServiceModel.Order" Multiplicity="0..1" />
+          <End Role="WorldCart_Payment" Type="ServiceModel.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WorldCart_Order">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="WorldCart_Payment">
+              <PropertyRef Name="order_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ServiceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Orders" EntityType="ServiceModel.Order" />
+          <EntitySet Name="Payments" EntityType="ServiceModel.Payment" />
+          <AssociationSet Name="FK_WorldCart_Payment_WorldCart_Order" Association="Self.FK_WorldCart_Payment_WorldCart_Order">
+            <End Role="WorldCart_Order" EntitySet="Orders" />
+            <End Role="WorldCart_Payment" EntitySet="Payments" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ServiceModelStoreContainer" CdmEntityContainer="ServiceEntities">
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ServiceModel.Order">
+              <MappingFragment StoreEntitySet="WorldCart_Order">
+                <ScalarProperty Name="id" ColumnName="ID" />
+                <ScalarProperty Name="customer_id" ColumnName="CustomerID" />
+                <ScalarProperty Name="address_id" ColumnName="AddressID" />
+                <ScalarProperty Name="username" ColumnName="Username" />
+                <ScalarProperty Name="title" ColumnName="Title" />
+                <ScalarProperty Name="summary" ColumnName="Summary" />
+                <ScalarProperty Name="order_date" ColumnName="OrderDate" />
+                <ScalarProperty Name="order_number" ColumnName="OrderNumber" />
+                <ScalarProperty Name="total" ColumnName="Total" />
+                <ScalarProperty Name="subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="tax_total" ColumnName="TaxTotal" />
+                <ScalarProperty Name="fee_total" ColumnName="FeeTotal" />
+                <ScalarProperty Name="shipping_total" ColumnName="ShippingTotal" />
+                <ScalarProperty Name="discount_total" ColumnName="DiscountTotal" />
+                <ScalarProperty Name="ip_address" ColumnName="IPAddress" />
+                <ScalarProperty Name="status" ColumnName="Status" />
+                <ScalarProperty Name="sort_order" ColumnName="SortOrder" />
+                <ScalarProperty Name="created_date" ColumnName="CreatedDate" />
+                <ScalarProperty Name="created_by" ColumnName="CreatedByUser" />
+                <ScalarProperty Name="modified_date" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="modified_by" ColumnName="ModifiedByUser" />
+                <ScalarProperty Name="portal_id" ColumnName="PortalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="ServiceModel.Payment">
+              <MappingFragment StoreEntitySet="WorldCart_Payment">
+                <ScalarProperty Name="id" ColumnName="ID" />
+                <ScalarProperty Name="order_id" ColumnName="OrderID" />
+                <ScalarProperty Name="customer_id" ColumnName="CustomerID" />
+                <ScalarProperty Name="account_id" ColumnName="AccountID" />
+                <ScalarProperty Name="username" ColumnName="Username" />
+                <ScalarProperty Name="title" ColumnName="Title" />
+                <ScalarProperty Name="summary" ColumnName="Summary" />
+                <ScalarProperty Name="payment_date" ColumnName="PaymentDate" />
+                <ScalarProperty Name="payment_number" ColumnName="PaymentNumber" />
+                <ScalarProperty Name="payment_method" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="total" ColumnName="Total" />
+                <ScalarProperty Name="success" ColumnName="Success" />
+                <ScalarProperty Name="message" ColumnName="Message" />
+                <ScalarProperty Name="transaction_number" ColumnName="TransactionNumber" />
+                <ScalarProperty Name="authorization_code" ColumnName="AuthorizationCode" />
+                <ScalarProperty Name="ip_address" ColumnName="IPAddress" />
+                <ScalarProperty Name="status" ColumnName="Status" />
+                <ScalarProperty Name="sort_order" ColumnName="SortOrder" />
+                <ScalarProperty Name="created_date" ColumnName="CreatedDate" />
+                <ScalarProperty Name="created_by" ColumnName="CreatedByUser" />
+                <ScalarProperty Name="modified_date" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="modified_by" ColumnName="ModifiedByUser" />
+                <ScalarProperty Name="portal_id" ColumnName="PortalID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

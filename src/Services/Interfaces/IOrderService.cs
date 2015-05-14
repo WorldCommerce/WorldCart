@@ -5,8 +5,6 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-using WorldCart.Data;
-
 namespace WorldCart.Services.Interfaces
 {
   [ServiceContract]
