@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WorldCart.Services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WorldCart.Services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Order">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="address_id" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="created_by" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="created_date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="customer_id" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="discount_total" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fee_total" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="id" type="xs:long" />
+      <xs:element minOccurs="0" name="ip_address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="modified_by" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="modified_date" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="order_date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="order_number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="portal_id" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="shipping_total" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="sort_order" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="status" nillable="true" type="xs:short" />
+      <xs:element minOccurs="0" name="subtotal" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="summary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tax_total" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="total" type="xs:decimal" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+</xs:schema>
